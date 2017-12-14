@@ -8,17 +8,16 @@ class ConsoleHelper
 {
     protected $converter;
     protected $output;
+
     protected $recursive = false;
     protected $overwrite;
-    protected $extensions;
 
-    public function __construct(OutputInterface $output, $recursive, $overwrite, $extensions)
+    public function __construct(OutputInterface $output, $recursive, $overwrite)
     {
         $this->converter = new Converter();
         $this->output = $output;
         $this->recursive = $recursive;
         $this->overwrite = $overwrite;
-        $this->extensions = $extensions;
     }
 
     public function folderConvert($folderPath)
@@ -102,6 +101,6 @@ class ConsoleHelper
      */
     protected function isConvertableFile($extension)
     {
-        return in_array($extension, $this->extensions);
+        return in_array($extension, ['php', 'html']);
     }
 }
