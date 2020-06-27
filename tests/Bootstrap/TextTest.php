@@ -5,7 +5,7 @@ namespace Awssat\Tailwindo\Test;
 use Awssat\Tailwindo\Converter;
 use PHPUnit\Framework\TestCase;
 
-class ConverterTest extends TestCase
+class TextTest extends TestCase
 {
     /** @var Awssat\Tailwindo\Converter */
     protected $converter;
@@ -16,15 +16,15 @@ class ConverterTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_output()
+    public function it_converts_text_with_breakpoint()
     {
         $this->assertEquals(
-            'sm:flex',
-            $this->converter->classesOnly(true)->setContent('d-sm-flex')->convert()->get()
+            'sm:text-left',
+            $this->converter->classesOnly(true)->setContent('text-xs-left')->convert()->get()
         );
         $this->assertEquals(
-            '<a class="text-gray-700">love</a>',
-            $this->converter->setContent('<a class="text-muted">love</a>')->convert()->get()
+            'lg:text-justify',
+            $this->converter->classesOnly(true)->setContent('text-lg-justify')->convert()->get()
         );
     }
 
