@@ -27,6 +27,8 @@ class Converter
         if (!empty($content)) {
             $this->setContent($content);
         }
+
+        return $this;
     }
 
     public function setContent(string $content): self
